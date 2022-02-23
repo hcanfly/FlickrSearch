@@ -9,4 +9,4 @@ FlickrSearch is an iOS 15 sample app. It is a simple TabBar app that displays tw
 
 ## License
 
-DigestSwiftUI is licensed under the Unlicense. See the LICENSE file for more information, but basically this is sample code and you can do whatever you want with it.
+FlickrSearch is licensed under the Unlicense. See the LICENSE file for more information, but basically this is sample code and you can do whatever you want with it.
