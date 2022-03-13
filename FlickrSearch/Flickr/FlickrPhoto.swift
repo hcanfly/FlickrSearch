@@ -17,12 +17,12 @@ final class FlickrPhoto: Equatable, Hashable {
     let server: String
     let secret: String
     
-    init (photoID: String, farm: Int, server: String, secret: String, title: String) {
-        self.photoID = photoID
-        self.farm = farm
-        self.server = server
-        self.secret = secret
-        self.title = title
+    init (info: FlickrPhotoInfo) {
+        self.photoID = info.id
+        self.farm = info.farm
+        self.server = info.server
+        self.secret = info.secret
+        self.title = info.title
     }
     
     func flickrImageURL(getLargeImage: Bool) -> URL? {

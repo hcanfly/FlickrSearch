@@ -31,13 +31,7 @@ enum FlickrDownload {
         var photos: [FlickrPhoto] = []
         
         for photoObject in photoData {
-            let photoID = photoObject.id
-            let farm = photoObject.farm
-            let server = photoObject.server
-            let secret = photoObject.secret
-            let title = photoObject.title
-            
-            let flickrPhoto = FlickrPhoto(photoID: photoID, farm: farm, server: server, secret: secret, title: title)
+            let flickrPhoto = FlickrPhoto(info: photoObject)
             
             guard let url = flickrPhoto.flickrImageURL(getLargeImage: getLargeImage) else { throw NetworkError.invalidURL }
             
