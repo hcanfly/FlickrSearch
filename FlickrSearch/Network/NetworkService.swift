@@ -21,20 +21,18 @@ enum NetworkService {
         guard let url = URL(string: urlString) else {
             throw NetworkError.invalidURL
         }
-        
-        let session = URLSession.shared
-        
-        let (data, response) = try await session.data(from: url)
+                
+        let (data, response) = try await URLSession.shared.data(from: url)
         guard let httpResponse = response as? HTTPURLResponse, 200..<300 ~= httpResponse.statusCode else {
             throw NetworkError.invalidServerResponse
         }
         
         //print(String(bytes: data, encoding: String.Encoding.utf8))
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.keyDecodingStrategy = .convertFromSnakeCase     // e.g. converts first_name to firstName
         do {
-            let theNews = try decoder.decode(T.self, from: data)
-            return theNews
+            let decodedData = try decoder.decode(T.self, from: data)
+            return decodedData
         } catch {
             throw NetworkError.invalidJSON
         }

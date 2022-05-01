@@ -8,7 +8,7 @@
 import Foundation
 
 
-let apiKey = "<Did you get an API key from Flickr?>"     // "<Did you get an API key from Flickr?>"
+let apiKey = "d086051e2fa1f25e5a6de80b76f3a9dd"     // "<Did you get an API key from Flickr?>"
 
 enum FlickrDownload {
     
